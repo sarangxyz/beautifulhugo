@@ -1,0 +1,26 @@
+<main class="content" role="main">
+    <br/>
+
+    <!--
+    {{ range (.Site.RegularPages) }}
+      {{ .Title }} -> {{ .PublishDate.Format "02 Jan" }}
+      <br/>
+    {{ end }}
+    -->
+
+    {{ range (.Site.RegularPages.GroupByDate "2006") }}
+        <h2> {{ .Key }} </h2>
+        <hr>
+
+        <ul class="archive-list">
+            {{ range (where .Pages "Type" "post") }}
+                <h4>
+                    <li>
+                        {{ .PublishDate.Format "02 Jan" }} - <a href="{{ .RelPermalink }}"> {{ .Title }}  </a>
+                    </li>
+                </h4>
+            {{ end }}
+        </ul>
+        <br/>
+    {{ end }}
+</main>

@@ -20,11 +20,13 @@
         {{ partial "post_meta.html" . }}
     </p>
     <div class="post-entry">
-        {{ if .Truncated }}
-        {{ .Summary }}
-        <a href="{{ .Permalink }}" class="post-read-more">[{{ i18n "readMore" }}]</a>
+        {{ if .Summary }}
+            {{ .Summary }}
+            <br/>
+            <br/>
+            <a href="{{ .Permalink }}" class="post-read-more">[{{ i18n "readMore" }}]</a>
         {{ else }}
-        {{ .Content }}
+            {{ .Content }}
         {{ end }}
     </div>
 
