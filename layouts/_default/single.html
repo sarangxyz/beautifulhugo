@@ -4,21 +4,31 @@
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
 
+      {{/* i know these are duplicated, but that is intentional */}}
+      {{ if .Params.tags }}
+        <div class="blog-tags">
+          {{ range .Params.tags }}
+            <a href="{{ $.Site.LanguagePrefix | absURL }}/tags/{{ . | urlize }}/">{{ . }}</a>&nbsp;
+          {{ end }}
+        </div>
+      {{ end }}
+
         {{ if eq .Type "archive" }}
           {{ partial "archive.html" . }}
-        {{ else }}
+        {{ else if .IsPage }}
+          {{/* partial "toc" . */}}
           {{ .Content }}
         {{ end }}
-
-
-        {{ if .Params.tags }}
-          <div class="blog-tags">
-            {{ range .Params.tags }}
-              <a href="{{ $.Site.LanguagePrefix | absURL }}/tags/{{ . | urlize }}/">{{ . }}</a>&nbsp;
-            {{ end }}
-          </div>
-        {{ end }}
-
+      
+      <br/>
+      {{ if .Params.tags }}
+        <div class="blog-tags">
+          {{ range .Params.tags }}
+            <a href="{{ $.Site.LanguagePrefix | absURL }}/tags/{{ . | urlize }}/">{{ . }}</a>&nbsp;
+          {{ end }}
+        </div>
+      {{ end }}
+        
         {{ if $.Param "socialShare" }}
             <hr/>
             <section id="social-share">
@@ -28,7 +38,8 @@
             </section>
         {{ end }}
 
-        {{ if .Site.Params.showRelatedPosts }}
+        <hr>
+        {{ if and (.Params.showRelatedPosts) (.Site.Params.showRelatedPosts) }}
           {{ range first 1 (where (where .Site.Pages ".Params.tags" "intersect" .Params.tags) "Permalink" "!=" .Permalink) }}
             {{ $.Scratch.Set "has_related" true }}
           {{ end }}
