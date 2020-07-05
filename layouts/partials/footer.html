@@ -1,4 +1,5 @@
-  {{ if eq .Type "page" }}
+  {{/* don't want to print lastmod/build date on home */}}
+  {{ if and (eq .Type "page") (not .IsHome) }}
     {{ partial "page_meta.html" . }}
   {{ end }}
 <footer>
