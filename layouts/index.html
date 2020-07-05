@@ -16,6 +16,8 @@
         </div>
 
         {{ if or (.Paginator.HasPrev) (.Paginator.HasNext) }}
+        <br/>
+        <br/>
           <ul class="pager main-pager">
             {{ if .Paginator.HasPrev }}
               <li class="previous">

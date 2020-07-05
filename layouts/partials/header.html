@@ -60,10 +60,10 @@
             <div class="{{ .Type }}-heading">
               {{ if eq .Type "list" }}
                 <h1>{{ if .Data.Singular }}#{{ end }}{{ .Title }}</h1>
-              {{ else }}
+              {{ else if not .IsHome }}
                 <h1>{{ with $title }}{{.}}{{ else }}<br/>{{ end }}</h1>
               {{ end }}
-              {{ if ne .Type "post" }}
+              {{ if and (ne .Type "post") (not .IsHome) }}
                 <hr class="small">
               {{ end }}
               {{ if $subtitle }}
