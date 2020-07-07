@@ -1,0 +1,9 @@
+<!-- https://laurakalbag.com/processing-responsive-images-with-hugo/-->
+<!-- https://hugothemesfree.com/a-responsive-and-clean-hugo-theme-for-blogs/ -->
+<picture>
+    {{ if (fileExists (printf "static/%s" (replace (.Get "src") (path.Ext (.Get "src")) ".webp"))) }}
+        <source srcset="{{ replace (.Get "src") (path.Ext (.Get "src")) ".webp" | relURL }}" type="image/webp">
+    {{ end }}
+    <source srcset="{{ (.Get "src") }}">
+    <img src="{{ (.Get "src") }}" {{ if isset .Params "alt" -}} alt="{{ .Get "alt"}}" {{- end }}>
+</picture>
