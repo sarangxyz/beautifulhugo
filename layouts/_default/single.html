@@ -40,7 +40,9 @@
         {{ end }}
       </article>
 
-      {{ if ne .Type "page" }}
+      {{ if eq .Type "archive"}}
+        {{ partial "archive.html" . }}
+      {{ else if ne .Type "page" }}
         <ul class="pager blog-pager">
           {{ if .PrevInSection }}
             <li class="previous">

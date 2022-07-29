@@ -39,7 +39,10 @@
                     {{ if eq .Type "page" }}
                       <hr class="small">
                       <span class="{{ .Type }}-subheading">{{ $subtitle }}</span>
-                    {{ else }}
+                    {{ else if eq .Type "archive"}}
+                    <hr class="small">
+                      <span class="{{ .Type }}-subheading">{{ $subtitle }}</span>
+                      {{ else }}
                       <h2 class="{{ .Type }}-subheading">{{ $subtitle }}</h2>
                     {{ end }}
                   {{ end }}

@@ -576,17 +576,20 @@ footer .theme-by {
   transition: opacity 1s linear;
 }
 .intro-header .page-heading,
+.intro-header .archive-heading,
 .intro-header .tags-heading,
 .intro-header .categories-heading {
   text-align: center;
 }
-.intro-header.big-img .page-heading,
+.intro-header.big-img .page-heading, 
+.intro-header.big-img .archive-heading,
 .intro-header.big-img .post-heading {
   padding: 100px 0;
   color: #FFF;
   text-shadow: 1px 1px 3px #000;
 }
 .intro-header .page-heading h1,
+.intro-header .archive-heading h1,
 .intro-header .tags-heading h1,
 .intro-header .categories-heading h1 {
   margin-top: 0;
@@ -597,6 +600,7 @@ footer .theme-by {
   font-size: 35px;
 }
 .intro-header .page-heading .page-subheading,
+.intro-header .archive-heading .page-subheading,
 .intro-header .post-heading .post-subheading {
   font-size: 27px;
   line-height: 1.1;
@@ -609,10 +613,13 @@ footer .theme-by {
   margin-bottom: 20px;
 }
 .intro-header.big-img .page-heading .page-subheading,
+.intro-header.big-img .archive-heading .page-subheading,
 .intro-header.big-img .post-heading .post-subheading {
   font-weight: 400;
 }
-.intro-header.big-img .page-heading hr {
+
+.intro-header.big-img .page-heading hr,
+.intro-header.big-img .archive-heading hr {
   box-shadow: 1px 1px 3px #000;
   -webkit-box-shadow: 1px 1px 3px #000;
   -moz-box-shadow: 1px 1px 3px #000;
@@ -639,13 +646,15 @@ footer .theme-by {
     margin-top: 91px;  /* Full navbar is small navbar + 20px padding on each side when expanded */
   }
   .intro-header.big-img .page-heading,
+  .intro-header.big-img .archive-heading,
   .intro-header.big-img .post-heading  {
     padding: 150px 0;
   }
   .intro-header .page-heading h1,
+  .intro-header .archive-heading h1,
   .intro-header .tags-heading h1,
   .intro-header .categories-heading h1 {
-    font-size: 80px;
+    font-size: 50px;
   }
   .intro-header .post-heading h1 {
     font-size: 50px;
@@ -675,6 +684,7 @@ footer .theme-by {
     height: 220px;
   }
   .intro-header.big-img .page-heading,
+  .intro-header.big-img .archive-heading,
   .intro-header.big-img .post-heading {
     display: none;
   }
